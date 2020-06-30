@@ -1,0 +1,954 @@
+#include<iostream>
+#include<stdlib.h>
+#include<conio.h>
+#include<time.h>
+#include<string.h>
+using namespace std;
+
+/*
+
+Nombre : Aaron Gil
+Cedula : 27.683.548
+Materia : Programacion orientado a objetos
+Actividad : Diagrana UML llevado a codigo [Me toco un concesionario]
+
+profe trate de usar palabras cortas y valores no tan altos cuando se piden datos
+porque se corta el programa debido a que se llena la memoria y lo termina por eso
+agrege [fflush(stdin)] que lo soluciona pero no con valores muy altos o cadenas de caracters extensas no mas de 15
+
+*/
+
+
+
+
+//Clase concesionario
+class concesionario{
+	
+	//Atributos
+private:
+	string NombreVehiculo;
+	string ModeloVehiculo;
+	string MarcaVehiculo;
+	string ColorVehiculo;
+	string CajaVehiculo;
+	int PuertasVehiculo;
+	float PrecioVehiculo;
+	string RepuestoVehiculo;
+	string CondicionVehiculo;
+	
+	//Metodos
+public:
+	concesionario(string,string,string,string,string,int,float,string,string);
+	void VerVehiculo();
+	void ComprarVehiculo();
+	void BuscarVehiculo(string,string);
+	void VenderVehiculo(string,string,string,string,string,int,float,string,string);
+	void VerRepuestos(string,string,float,string);
+	void ComprarRepuestos();
+	void BuscarRepuestos(string,string,string,float);
+	
+};
+
+//Constructor
+concesionario::concesionario(string _NombreVehiculo,string _ModeloVehiculo,string _MarcaVehiculo,
+							 string _ColorVehiculo,string _CajaVehiculo,int _Puertasvehiculo,
+							 float _Preciovehiculo,string _Repuestovehiculo,string _Condicionvehiculo){														
+	
+	NombreVehiculo = _NombreVehiculo;
+	ModeloVehiculo = _ModeloVehiculo;
+	MarcaVehiculo = _MarcaVehiculo;
+	ColorVehiculo = _ColorVehiculo;
+	CajaVehiculo = _CajaVehiculo;
+	PuertasVehiculo = _Puertasvehiculo;
+	PrecioVehiculo = _Preciovehiculo;
+	RepuestoVehiculo = _Repuestovehiculo;
+	CondicionVehiculo = _Condicionvehiculo;
+	
+}
+
+//--------------------------------------------MAS METODOS DE LA CLASE CONCESIUONARIO---------------------------------------------------------
+
+void concesionario::VerVehiculo(){
+	
+	cout<<"---------------------"<<endl;
+	cout<<"Nombre: "<<NombreVehiculo<<endl;
+	cout<<"Modelo: "<<ModeloVehiculo<<endl;
+	cout<<"Marca:  "<<MarcaVehiculo<<endl;
+	cout<<"Color: "<<ColorVehiculo<<endl;
+	cout<<"De tipo: "<<CajaVehiculo<<endl;
+	cout<<"Puertas: "<<PuertasVehiculo<<endl;
+	cout<<"Precio: "<<PrecioVehiculo<<"$"<<endl;
+	cout<<"Repuesto: "<<RepuestoVehiculo<<endl;
+	cout<<"Condicion: "<<CondicionVehiculo<<endl;
+	cout<<"---------------------"<<endl;
+}
+
+void concesionario::ComprarVehiculo(){
+	
+	cout<<"------------------------"<<endl;
+	cout<<"|  Compro el vehiculo  |"<<endl;
+	cout<<"------------------------"<<endl;
+	
+	cout<<"Modelo: "<<ModeloVehiculo<<endl;
+	cout<<"Marca:  "<<MarcaVehiculo<<endl;
+	cout<<"Tipo de caja: "<<CajaVehiculo<<endl;
+	cout<<"Precio: "<<PrecioVehiculo<<endl;
+	
+	
+}
+
+void concesionario::BuscarVehiculo(string _NombreVehiculo,string _ModeloVehiculo){
+	
+	NombreVehiculo = _NombreVehiculo;
+	ModeloVehiculo = _ModeloVehiculo;
+	cout<<"Se encontraron 34"<<" disponible para "<<NombreVehiculo<<endl;
+}
+
+void concesionario::VenderVehiculo(string _NombreVehiculo,string _ModeloVehiculo,string _MarcaVehiculo,
+								   string _ColorVehiculo,string _CajaVehiculo,int _Puertasvehiculo,
+								   float _Preciovehiculo,string _Repuestovehiculo,string _Condicionvehiculo){
+	
+	NombreVehiculo = _NombreVehiculo;
+	ModeloVehiculo = _ModeloVehiculo;
+	MarcaVehiculo = _MarcaVehiculo;
+	ColorVehiculo = _ColorVehiculo;
+	CajaVehiculo = _CajaVehiculo;
+	PuertasVehiculo = _Puertasvehiculo;
+	PrecioVehiculo = _Preciovehiculo;
+	RepuestoVehiculo = _Repuestovehiculo;
+	CondicionVehiculo = _Condicionvehiculo;	
+}
+
+void concesionario::VerRepuestos(string _NombreVehiculo,string _ModeloVehiculo,float _Preciovehiculo,string _repuesto){
+	
+	NombreVehiculo = _NombreVehiculo;
+	ModeloVehiculo = _ModeloVehiculo;
+	PrecioVehiculo = _Preciovehiculo;
+	RepuestoVehiculo = _repuesto;
+	
+	cout<<"---------------------"<<endl;
+	cout<<"Nombre: "<<NombreVehiculo<<endl;
+	cout<<"Modelo: "<<ModeloVehiculo<<endl;
+	cout<<"Precio: "<<PrecioVehiculo<<"$"<<endl;
+	cout<<"Repuesto: "<<RepuestoVehiculo<<endl;
+	cout<<"---------------------"<<endl;
+	
+}
+
+void concesionario::ComprarRepuestos(){
+	
+	cout<<"comprado por: ";
+	
+}
+
+void concesionario::BuscarRepuestos(string _NombreVehiculo,string _ModeloVehiculo,string _MarcaVehiculo,float _Preciovehiculo){
+	
+	cout<<"Repuesto encontrado";
+	NombreVehiculo = _NombreVehiculo;
+	ModeloVehiculo = _ModeloVehiculo;
+	PrecioVehiculo = _Preciovehiculo;
+	MarcaVehiculo = _MarcaVehiculo;
+}
+
+//--------------------------------------------FIN DE LOS METODOS DE LA CLASE CONCESIUONARIO---------------------------------------------------------
+
+//Clase Carro
+class carro : public concesionario{
+	
+	//Atributos
+private:
+	string estado;
+	
+	//Metodos
+public:
+	carro(string,string,string,string,string,int,float,string,string);
+	void encender();
+	void apagar();
+	void acelerar();
+	void frenar();
+	
+};
+
+//Constructor
+carro::carro(string _NombreVehiculo,string _ModeloVehiculo,string _MarcaVehiculo,
+			 string _ColorVehiculo,string _CajaVehiculo,int _Puertasvehiculo,
+			 float _Preciovehiculo,string _Repuestovehiculo,string _Condicionvehiculo)
+			 
+			 : concesionario(_NombreVehiculo,_ModeloVehiculo,_MarcaVehiculo,
+								_ColorVehiculo,_CajaVehiculo,_Puertasvehiculo,
+								_Preciovehiculo,_Repuestovehiculo,_Condicionvehiculo){
+																									
+	estado = "false";
+	
+}
+
+//--------------------------------------------MAS METODOS DE LA CLASE CARRO---------------------------------------------------------
+
+void carro::encender(){
+	
+	if(estado == "false"){
+		
+		cout<<"-------------------"<<endl;
+		cout<<"El auto se encendio"<<endl;
+		cout<<"-------------------"<<endl;
+		
+		estado = "true";
+	}else{
+	
+		cout<<"-------------------------"<<endl;
+		cout<<"El auto ya esta encendido"<<endl;
+		cout<<"-------------------------"<<endl;
+	}
+}
+
+void carro::apagar(){
+	
+	if(estado == "false"){
+		
+		cout<<"--------------------"<<endl;
+		cout<<"El auto esta apagado"<<endl;
+		cout<<"--------------------"<<endl;
+	}else{
+		
+		cout<<"-------------------"<<endl;
+		cout<<"El auto ya se apago"<<endl;
+		cout<<"-------------------"<<endl;
+		
+		estado = "false";
+	}
+}
+
+void carro::acelerar(){
+	
+	if(estado == "false"){
+		
+		cout<<"-------------------"<<endl;
+		cout<<"Se esta acelerando"<<endl;
+		cout<<"-------------------"<<endl;
+		
+		estado = "true";
+	}else{
+	
+		cout<<"-------------------------"<<endl;
+		cout<<"El auto ya esta acelerando, esta andando"<<endl;
+		cout<<"-------------------------"<<endl;
+	}
+}
+
+void carro::frenar(){
+	
+	if(estado == "false"){
+		
+		cout<<"-------------------"<<endl;
+		cout<<"El auto se freno"<<endl;
+		cout<<"-------------------"<<endl;
+		
+		estado = "true";
+	}else{
+	
+		cout<<"-------------------------"<<endl;
+		cout<<"El auto esta detenido"<<endl;
+		cout<<"-------------------------"<<endl;
+	}
+}
+
+//--------------------------------------------FIN DE LOS METODOS DE LA CLASE CARRO--------------------------------------------------
+
+//Clase Camioneta
+class camioneta : public carro{
+	
+	//Atributos
+private:
+	string estado;
+	
+	//Metodos
+public:
+	camioneta(string,string,string,string,string,int,float,string,string);
+	
+};
+
+//Constructor
+camioneta::camioneta(string _NombreVehiculo,string _ModeloVehiculo,string _MarcaVehiculo,
+			 string _ColorVehiculo,string _CajaVehiculo,int _Puertasvehiculo,
+			 float _Preciovehiculo,string _Repuestovehiculo,string _Condicionvehiculo)
+			 
+			 : carro(_NombreVehiculo,_ModeloVehiculo,_MarcaVehiculo,
+								_ColorVehiculo,_CajaVehiculo,_Puertasvehiculo,
+								_Preciovehiculo,_Repuestovehiculo,_Condicionvehiculo){
+																									
+	estado = "false";
+	
+}
+
+//--------------------------------------------MAS METODOS DE LA CLASE CAMIONETA---------------------------------------------------------
+
+
+
+//--------------------------------------------FIN DE LOS METODOS DE LA CLASE CAMION-----------------------------------------------------
+
+//Clase Camion
+class camion : public camioneta{
+	
+	//Atributos
+private:
+	string estado;
+	
+	//Metodos
+public:
+	camion(string,string,string,string,string,int,float,string,string);
+	
+};
+
+//Constructor
+camion::camion(string _NombreVehiculo,string _ModeloVehiculo,string _MarcaVehiculo,
+			 string _ColorVehiculo,string _CajaVehiculo,int _Puertasvehiculo,
+			 float _Preciovehiculo,string _Repuestovehiculo,string _Condicionvehiculo)
+			 
+			 : camioneta(_NombreVehiculo,_ModeloVehiculo,_MarcaVehiculo,
+								_ColorVehiculo,_CajaVehiculo,_Puertasvehiculo,
+								_Preciovehiculo,_Repuestovehiculo,_Condicionvehiculo){
+																									
+	estado = "false";
+	
+}
+
+//--------------------------------------------MAS METODOS DE LA CLASE CAMION---------------------------------------------------------
+
+
+
+//--------------------------------------------FIN DE LOS METODOS DE LA CLASE CAMION-------------------=-------------------------------
+
+//Clase concesionario
+class persona{
+	
+	//Atributos
+private:
+	string Nombre;
+	string Apellido;
+	string Documento;
+	string tipo;
+	string EstadoConcesionario;
+		
+	//Meotodos
+public:
+	persona(string,string,string,string);
+	void AbrirConcesionario();
+	void CerrarConcesionario();
+	void Vigilar();
+	void Limpiar();
+};
+
+//Constructor
+persona::persona(string _nombre,string _apellido,string _documento,string _tipo){
+	
+	Nombre = _nombre;
+	Apellido = _apellido;
+	Documento = _documento;
+	tipo = _tipo;
+	
+	EstadoConcesionario = "false";
+}
+
+//--------------------------------------------MAS METODOS DE LA CLASE PERSONLA----------------------------------------------------------
+
+void persona::AbrirConcesionario(){
+	
+	if(EstadoConcesionario == "false"){
+		
+		cout<<"---------------------"<<endl;
+		cout<<"Concesionario abierto"<<endl;
+		cout<<"---------------------"<<endl;
+		EstadoConcesionario = "true";
+	}else{
+		
+		cout<<"----------------------------------"<<endl;
+		cout<<"El concesionario ya esta abierto"<<endl;
+		cout<<"----------------------------------"<<endl;
+	}
+}
+void persona::CerrarConcesionario(){
+	
+	if(EstadoConcesionario == "true"){
+		
+		cout<<"---------------------"<<endl;
+		cout<<"Concesionario Cerrado"<<endl;
+		cout<<"---------------------"<<endl;
+		EstadoConcesionario = "false";
+	}else{
+		
+		cout<<"-----------------------"<<endl;
+		cout<<"El concesionario ya esta cerrado"<<endl;
+		cout<<"-----------------------"<<endl;
+	}
+}
+
+void persona::Limpiar(){
+		
+	cout<<"---------------------"<<endl;
+	cout<<"Estas limpiando"<<endl;
+	cout<<"---------------------"<<endl;
+	EstadoConcesionario = "true";
+}
+
+void persona::Vigilar(){
+	
+		
+	cout<<"---------------------"<<endl;
+	cout<<"Estas vigilando"<<endl;
+	cout<<"---------------------"<<endl;
+}
+
+
+//--------------------------------------------FIN DE LOS METODOS DE LA CLASE PERSONAL---------------------------------------------------
+
+int main(){
+	
+	int /* Variable de cantidad de puerta */ puertas,opc,precio,precioRepuesto,disponible,ventas;
+	char nombreVehiculo[30],modeloVehiculo[30],marcaVehiculo[30],colorVehiculo[30],tipoVehiculo[30],estadoVehiculo[30],repuesto[30];
+	char name[30],ape[30],doc[30],emple[30];
+	
+	srand(time(NULL));
+	precio = 1100+rand() % ((15500+1)-1100);//Precio al azar simulado
+	precioRepuesto = 300+rand() % ((1000+1)-1100);
+	disponible = 1+rand() % ((1+3)-1);//Este verifica si el auta esta disponible
+	ventas = 1+rand() % ((100+1)-1);//Este lanza un valor que se utiliza cuando se llama la funcion Vender() muestra los resultados de ventas
+	
+	cout<<"|-------------------------------------|"<<endl;
+	cout<<"|BIENVENIDO AL CONCESIOANRIO DE AARON |"<<endl;
+	cout<<"|-------------------------------------|"<<endl<<endl;
+	
+	cout<<"|---------------------------|"<<endl;
+	cout<<" Ingrese la opcion:\n 1-Buscar vehiculo\n 2-Comprar vehiculo\n 3-Vender vehiculo\n 4-Buscar repuestos\n 00-Para ingresar en personal"<<endl;
+	cout<<"|---------------------------|"<<endl<<endl;
+	cin>>opc;//Valor de la opcion 
+	
+	
+	system("cls");
+	switch(opc){
+		case 1:{
+			cout<<"|----------------|"<<endl;
+			cout<<"|Buscar vehiculo |"<<endl;
+			cout<<"|----------------|"<<endl<<endl;
+			
+			/*
+			-------------------------------------------------------------------------------------------------------
+			aqui se ingresan los datos que pasan al constructor del concesionario (en este caso al de la clase carro)
+			*/
+			
+			cout<<"-------------------------------------------------"<<endl;			
+			cout<<"Digite:"<<endl;
+			
+			fflush(stdin);
+			cout<<"Su nombre [Vehiculo]: ";
+			cin.getline(nombreVehiculo,30,'\n');
+			
+			cout<<"Su modelo [Vehiculo]: ";
+			cin.getline(modeloVehiculo,30,'\n');
+			
+			cout<<"Su marca [Vehiculo]: ";
+			cin.getline(marcaVehiculo,30,'\n');
+			
+			//Puertas [digitando hasta que el valor sea 2 o 4]
+			do{
+				
+				fflush(stdin);
+				cout<<"Digite la cantidad de puertas: ";cin>>puertas;
+				
+			}while(puertas == 1 || puertas == 3 || puertas>4 || puertas<1);
+			
+			cout<<"Su color [Vehiculo]: ";
+			cin.getline(colorVehiculo,30,'\n');
+			
+			cout<<"Tipo de caja [Vehiculo]: ";
+			cin.getline(tipoVehiculo,30,'\n');
+			
+			cout<<"Estado [Vehiculo [Nuevo o Usado]]: ";
+			cin.getline(estadoVehiculo,30,'\n');
+			
+			cout<<"Ingrese un repuesto adicional: ";
+			cin.getline(repuesto,30,'\n');
+			
+			cout<<"-------------------------------------------------"<<endl;
+				
+			//---------------------------------------------------------------------------------------------------------------		
+						
+			concesionario vehiculo = concesionario(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+		
+			if(disponible == 1){//Simulara si esta disponible
+				
+				//El auto no se encuentra en el concesionario
+				cout<<"El vehiculo no se encuentra"<<endl;
+			}else{
+				
+				if(disponible == 2){
+					
+					//disponible
+					cout<<"-------------------"<<endl;
+					cout<<"Vehicolo disponible"<<endl;
+					cout<<"--------------------"<<endl;
+					
+					opc = 0;
+					cout<<"1-Desearia comprar el vehiculo\n2-Ver auto\n3-Usar el vehiculo"<<endl;
+					cin>>opc;
+					
+					switch(opc){
+						case 1:{
+							vehiculo.ComprarVehiculo();
+							break;//Rompe el case
+						}
+						case 2:{
+							vehiculo.VerVehiculo();
+							break;//Rompe el case
+						}
+						case 3:{
+							/*
+							Aqui se van activar las acciones del auto
+							----------------------------------------------------------------------------------
+							*/
+							
+							carro carro5 = carro(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+							
+							do{
+								
+								opc = 0;
+								cout<<"Ingrese segun la accion del auto:\n1-Encender\n2-Apagar"<<endl;
+								cin>>opc;
+								
+								switch(opc){
+									case 1:{
+										system("cls");
+										carro5.encender();
+
+										break;//Rompe el case
+									}
+									case 2:{
+										system("cls");
+										carro5.apagar();
+										
+										break;//Rompe el case
+									}
+									case 4:{
+										carro5.acelerar();
+										
+										break;//Rompe el case;
+									}
+									case 5:{
+										carro5.frenar();
+										
+										break;//Rompe el case
+									}
+									default :{
+										cout<<"No realizo una accion"<<endl;
+										cout<<"Dejo de usar el auto"<<endl;
+									}
+								}
+								
+							}while(opc == 1 || opc == 2);
+							
+							//--------------------------------------------------------------------------------
+							
+							
+							break;//Rompe el case
+						}
+					}
+				}else{
+					
+					//No disponible a la venta pero podra hacer una solicitud
+					cout<<"El vehiculo esta disponible per no a la venta\nDesearia hacer una solicitud para cuando este en venta??"<<endl;
+					
+					cout<<"---------------------------------------------------"<<endl;
+					vehiculo.BuscarVehiculo(nombreVehiculo,modeloVehiculo);
+					cout<<"---------------------------------------------------"<<endl;
+					system("cls");
+				}
+			}
+			
+			break;//Rompe el case
+		}
+		case 2:{
+			cout<<"|-----------------|"<<endl;
+			cout<<"|Comprar vehiculo |"<<endl;
+			cout<<"|-----------------|"<<endl<<endl;
+			
+			opc = 0;
+			cout<<"Que tipo de vehiculo desea comprar"<<endl;
+			cout<<"1-Auto movil\n2-Camioneta\n3-Camion"<<endl;
+			cin>>opc;
+			
+			switch(opc){
+				case 1:{
+					
+					/*
+					-------------------------------------------------------------------------------------------------------
+					aqui se ingresan los datos que pasan al constructor del concesionario (en este caso al de la clase carro)
+					*/
+					
+					fflush(stdin);
+					cout<<"-------------------------------------------------"<<endl;
+					cout<<"Digite:"<<endl;
+					
+					cout<<"Su nombre [Vehiculo]: ";
+					cin.getline(nombreVehiculo,30,'\n');
+					
+					cout<<"Su modelo [Vehiculo]: ";
+					cin.getline(modeloVehiculo,30,'\n');
+					
+					cout<<"Su marca [Vehiculo]: ";
+					cin.getline(marcaVehiculo,30,'\n');
+					
+					//Puertas [digitando hasta que el valor sea 2 o 4]
+					do{
+						
+						fflush(stdin);
+						cout<<"Digite la cantidad de puertas: ";cin>>puertas;
+						
+					}while(puertas == 1 || puertas == 3 || puertas>4 || puertas<1);
+					
+					cout<<"Su color [Vehiculo]: ";
+					cin.getline(colorVehiculo,30,'\n');
+					
+					cout<<"Tipo de caja [Vehiculo]: ";
+					cin.getline(tipoVehiculo,30,'\n');
+					
+					cout<<"Estado [Vehiculo [Nuevo o Usado]]: ";
+					cin.getline(estadoVehiculo,30,'\n');
+					
+					cout<<"Ingrese un repuesto adicional: ";
+					cin.getline(repuesto,30,'\n');
+					
+					cout<<"-------------------------------------------------"<<endl;
+					
+					//---------------------------------------------------------------------------------------------------------------		
+										
+					carro automovil = carro(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+					system("cls");
+					automovil.ComprarVehiculo();
+					automovil.VerVehiculo();
+					
+					break;//Rompe case
+				}
+				case 2:{
+					
+					/*
+					-------------------------------------------------------------------------------------------------------
+					aqui se ingresan los datos que pasan al constructor del concesionario (en este caso al de la clase carro)
+					*/
+					
+					fflush(stdin);
+					cout<<"-------------------------------------------------"<<endl;
+					cout<<"Digite:"<<endl;
+					
+					cout<<"Su nombre [Vehiculo]: ";
+					cin.getline(nombreVehiculo,30,'\n');
+					
+					cout<<"Su modelo [Vehiculo]: ";
+					cin.getline(modeloVehiculo,30,'\n');
+					
+					cout<<"Su marca [Vehiculo]: ";
+					cin.getline(marcaVehiculo,30,'\n');
+					
+					//Puertas [digitando hasta que el valor sea 2 o 4]
+					do{
+						
+						fflush(stdin);
+						cout<<"Digite la cantidad de puertas: ";cin>>puertas;
+						
+					}while(puertas == 1 || puertas == 3 || puertas>4 || puertas<1);
+							
+					cout<<"Su color [Vehiculo]: ";
+					cin.getline(colorVehiculo,30,'\n');
+					
+					cout<<"Tipo de caja [Vehiculo]: ";
+					cin.getline(tipoVehiculo,30,'\n');
+					
+					cout<<"Estado [Vehiculo [Nuevo o Usado]]: ";
+					cin.getline(estadoVehiculo,30,'\n');
+					
+					cout<<"Ingrese un repuesto adicional: ";
+					cin.getline(repuesto,30,'\n');
+					
+					cout<<"-------------------------------------------------"<<endl;
+					
+					//---------------------------------------------------------------------------------------------------------------										
+					
+					camioneta camioneta1 = camioneta(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+					system("cls");
+					camioneta1.ComprarVehiculo();
+					camioneta1.VerVehiculo();
+					
+					break;//Rompe case
+				}
+				case 3:{
+					
+					/*
+					-------------------------------------------------------------------------------------------------------
+					aqui se ingresan los datos que pasan al constructor del concesionario (en este caso al de la clase carro)
+					*/
+					
+					fflush(stdin);
+					cout<<"-------------------------------------------------"<<endl;
+					cout<<"Digite:"<<endl;
+					
+					cout<<"Su nombre [Vehiculo]: ";
+					cin.getline(nombreVehiculo,30,'\n');
+					
+					cout<<"Su modelo [Vehiculo]: ";
+					cin.getline(modeloVehiculo,30,'\n');
+					
+					cout<<"Su marca [Vehiculo]: ";
+					cin.getline(marcaVehiculo,30,'\n');
+					
+					//Puertas [digitando hasta que el valor sea 2 o 4]
+					do{
+						
+						fflush(stdin);
+						cout<<"Digite la cantidad de puertas: ";cin>>puertas;
+						
+					}while(puertas == 1 || puertas == 3 || puertas>4 || puertas<1);
+					
+					cout<<"Su color [Vehiculo]: ";
+					cin.getline(colorVehiculo,30,'\n');
+					
+					cout<<"Tipo de caja [Vehiculo]: ";
+					cin.getline(tipoVehiculo,30,'\n');
+					
+					cout<<"Estado [Vehiculo [Nuevo o Usado]]: ";
+					cin.getline(estadoVehiculo,30,'\n');
+					
+					cout<<"Ingrese un repuesto adicional: ";
+					cin.getline(repuesto,30,'\n');
+					
+					cout<<"-------------------------------------------------"<<endl;
+					
+					//---------------------------------------------------------------------------------------------------------------		
+										
+					camion camion1 = camion(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+					system("cls");
+					camion1.ComprarVehiculo();
+					camion1.VerVehiculo();
+					
+					break;//Rompe case
+				}
+			}
+			
+			
+		break;//Rompe el case
+		}
+		case 3:{
+			cout<<"|----------------|"<<endl;
+			cout<<"|Vender vehiculo |"<<endl;
+			cout<<"|----------------|"<<endl<<endl;
+			
+			
+			opc = 0;
+			cout<<"Marque segun la opcion de venta\n1-Vender carro\n2-Vender camioneta "<<endl;
+			cout<<"---------------------------------------"<<endl;
+			cout<<"[Camiones de carga no aceptamos venta]"<<endl;
+			cout<<"---------------------------------------"<<endl;
+			cin>>opc;
+			
+			if((opc == 1 || opc ==2) && (opc >=1 || opc <=2)){
+				
+				cout<<"Para vender tu vehiculo deberas llenar la siguiente informacion:"<<endl;
+				
+				/*
+				---------------------------------------------------------------------------------------------------------
+				aqui se ingresan los datos que pasan al constructor del concesionario (en este caso al de la clase carro)
+				*/
+				
+				cout<<"-------------------------------------------------"<<endl;
+				cout<<"Digite:"<<endl;
+				
+				cout<<"Su precio [Vehiculo]: ";
+				cin>>precio;
+				
+				fflush(stdin);
+				cout<<"Su nombre [Vehiculo]: ";
+				cin.getline(nombreVehiculo,30,'\n');
+				
+				cout<<"Su modelo [Vehiculo]: ";
+				cin.getline(modeloVehiculo,30,'\n');
+				
+				cout<<"Su marca [Vehiculo]: ";
+				cin.getline(marcaVehiculo,30,'\n');
+				
+				//Puertas [digitando hasta que el valor sea 2 o 4]
+				do{
+					
+					fflush(stdin);
+					cout<<"Digite la cantidad de puertas: ";cin>>puertas;
+					
+				}while(puertas == 1 || puertas == 3 || puertas>4 || puertas<1);
+				
+				cout<<"Su color [Vehiculo]: ";
+				cin.getline(colorVehiculo,30,'\n');
+				
+				cout<<"Tipo de caja [Vehiculo]: ";
+				cin.getline(tipoVehiculo,30,'\n');
+				
+				cout<<"Estado [Vehiculo [Nuevo o Usado]]: ";
+				cin.getline(estadoVehiculo,30,'\n');
+				
+				cout<<"Ingrese un repuesto adicional: Ejemplo [2 Causcho] o [Ninguno]";
+				cin.getline(repuesto,30,'\n');
+				
+				cout<<"-------------------------------------------------"<<endl;
+				
+				//---------------------------------------------------------------------------------------------------------	
+				
+				concesionario vehiculo = concesionario(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+				
+				vehiculo.VenderVehiculo(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+				cout<<"Esta es la cantidad de personas queriendo la venta del vehiculo o personas que an buscado el vehiculo: "<<ventas<<endl;
+				
+				vehiculo.VerVehiculo();
+				
+				opc = 0;
+				cout<<"Ingrese 1 para vender: "<<endl;cin>>opc;
+				
+				if(opc == 1){
+					
+					cout<<"-------------------"<<endl;
+					cout<<"Vehiculo vendido\n";
+					cout<<"-------------------"<<endl;
+				}else{
+					
+					cout<<"---------------------"<<endl;
+					cout<<"El vehiculo se vendio"<<endl;
+					cout<<"---------------------"<<endl;
+				}
+			}else{
+				
+				cout<<"No marco una opcion por lo tanto SISTEMA CERRADO"<<endl;
+			}
+					
+			break;//Rompe el case
+		}
+		case 4:{
+			cout<<"|----------------|"<<endl;
+			cout<<"|Buscar repuesto |"<<endl;
+			cout<<"|----------------|"<<endl<<endl;
+			
+			cout<<"Digite los datos del vehiculo [Repuesto a vender de este vehiculo]:"<<endl;
+			
+			fflush(stdin);
+			cout<<"Su nombre [Vehiculo]: ";
+			cin.getline(nombreVehiculo,30,'\n');
+			
+			cout<<"Su modelo [Vehiculo]: ";
+			cin.getline(modeloVehiculo,30,'\n');
+			
+			cout<<"Su marca [Vehiculo]: ";
+			cin.getline(marcaVehiculo,30,'\n');
+			
+			cout<<"Su color [Vehiculo]: ";
+			cin.getline(colorVehiculo,30,'\n');
+			
+			cout<<"Tipo de caja [Vehiculo]: ";
+			cin.getline(tipoVehiculo,30,'\n');
+			
+			cout<<"Estado [Vehiculo [Nuevo o Usado]]: ";
+			cin.getline(estadoVehiculo,30,'\n');
+			
+			cout<<"Rpuesto : ";cin.getline(repuesto,30,'\n');
+			
+			//Puertas [digitando hasta que el valor sea 2 o 4]
+			do{
+				
+				cout<<"Digite la cantidad de puertas: ";cin>>puertas;
+				
+			}while(puertas == 1 || puertas == 3 || puertas>4 || puertas<1);
+			
+			cout<<"-------------------------------------------------"<<endl;
+			
+			concesionario repuestos = concesionario(nombreVehiculo,modeloVehiculo,marcaVehiculo,colorVehiculo,tipoVehiculo,puertas,precio,repuesto,estadoVehiculo);
+			repuestos.BuscarRepuestos(nombreVehiculo,modeloVehiculo,marcaVehiculo,precio);
+			
+			repuestos.ComprarRepuestos();
+			cout<<precioRepuesto<<"$";
+			
+			opc = 0;
+			cout<<"\nQuiere comprar el repuesto\n1-Si\n2-No"<<endl;
+			cin>>opc;
+			
+			if(opc == 1){
+				
+				cout<<"Comprado"<<endl;
+			}else{
+				
+				cout<<"Sistema cerrado"<<endl;
+				cout<<"No realizo una compra"<<endl;
+			}
+
+
+			
+			break;//Rompe el case
+		}
+		
+		default:
+			/*
+			cout<<"---------------------"<<endl;
+			cout<<"CONCESIONARIO CERRADO"<<endl;
+			cout<<"---------------------"<<endl;
+			*/
+			
+			cout<<"-----------------------"<<endl;
+			cout<<"BIENVENIDO AL PERSONAL"<<endl;
+			cout<<"-----------------------"<<endl;
+			
+			cout<<"Llene su informacion: "<<endl;
+			
+			fflush(stdin);
+			cout<<"Nombre: ";cin.getline(name,30,'\n');
+			cout<<"Apellido: ";cin.getline(ape,30,'\n');
+			cout<<"Cedula [Documento id]: ";cin.getline(doc,30,'\n');
+			cout<<"Tipo de empleado [Due#o o Trabajador]: ";cin.getline(emple,30,'\n');
+			
+			persona aaron = persona(name,ape,doc,emple);
+			
+			opc = 0;
+			cout<<"Seleccione la accion al concesionario: "<<endl;
+			
+			do{
+				
+				cout<<"1-Abir\n2-Cerrar\n3-Vigilar\n4-Limpiar\nCualquier tecla para cerrar programa"<<endl;
+				cin>>opc;
+			
+				switch(opc){
+					case 1:{
+						system("cls");
+						aaron.AbrirConcesionario();
+						
+						break;//Rompe el case
+					}
+					case 2:{
+						system("cls");
+						aaron.CerrarConcesionario();
+						
+						break;//Rompe el case
+					}
+					case 3:{
+						system("cls");
+						aaron.Vigilar();
+						
+						break;//Rompe el case
+					}
+					case 4:{
+						system("cls");
+						aaron.Limpiar();
+						
+						break;//Rompe el case
+					}
+					default :
+						cout<<"-----------------------"<<endl;
+						cout<<"CHAO TE DICE AARON GIL, NO MARCO UNA OPCION"<<endl;
+						cout<<"-----------------------"<<endl;
+				}
+			}while(opc <=4 && opc>=1);
+				
+			break;//Rompe el case */
+	}
+	
+	getch();
+	return 0;
+}
